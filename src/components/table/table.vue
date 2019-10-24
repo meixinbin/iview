@@ -12,7 +12,7 @@
                     :columns-width="columnsWidth"
                     :data="rebuildData"></table-head>
             </div>
-            <div :class="[prefixCls + '-title']" v-if="showSlotBar" ref="bar"><slot name="bar"></slot></div>
+            <div :class="[prefixCls + '-bar']" v-if="showSlotBar" ref="bar"><slot name="bar"></slot></div>
             <div :class="[prefixCls + '-body']" :style="bodyStyle" ref="body" @scroll="handleBodyScroll"
                 v-show="!((!!localeNoDataText && (!data || data.length === 0)) || (!!localeNoFilteredDataText && (!rebuildData || rebuildData.length === 0)))">
                 <table-body
