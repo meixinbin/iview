@@ -53,6 +53,7 @@
                         :columns-width="columnsWidth"
                         :data="rebuildData"></table-head>
                 </div>
+                <div :class="[prefixCls + '-bar']" v-if="showSlotBar" ref="bar"></div>
                 <div :class="[prefixCls + '-fixed-body']" :style="fixedBodyStyle" ref="fixedBody" @mousewheel="handleFixedMousewheel" @DOMMouseScroll="handleFixedMousewheel">
                     <table-body
                         fixed="left"
@@ -79,6 +80,7 @@
                         :columns-width="columnsWidth"
                         :data="rebuildData"></table-head>
                 </div>
+                <div :class="[prefixCls + '-bar']" v-if="showSlotBar" ref="bar"></div>
                 <div :class="[prefixCls + '-fixed-body']" :style="fixedBodyStyle" ref="fixedRightBody" @mousewheel="handleFixedMousewheel" @DOMMouseScroll="handleFixedMousewheel">
                     <table-body
                         fixed="right"
