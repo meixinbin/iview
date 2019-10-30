@@ -171,9 +171,9 @@
                 type: Boolean,
                 default: true
             },
-            showBar: {
+            showSlotBar: {
                 type: Boolean,
-                default: true
+                default: false
             },
             highlightRow: {
                 type: Boolean,
@@ -233,7 +233,6 @@
                 rightFixedColumnRows: this.makeColumnRows('right', colsWithId),
                 allColumns: getAllColumns(colsWithId),  // for multiple table-head, get columns that have no children
                 showSlotHeader: true,
-                showSlotBar: true,
                 showSlotFooter: true,
                 bodyHeight: 0,
                 scrollBarWidth: getScrollBarSize(),
