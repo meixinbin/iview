@@ -104,7 +104,7 @@
                 type: Boolean,
                 default: false
             },
-            scroll: {
+            bodyScroll: {
                 type: Boolean,
                 default: false
             },
