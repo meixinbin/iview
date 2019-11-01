@@ -3,8 +3,8 @@
         <colgroup>
             <col v-for="(column, index) in columns" :width="setCellWidth(column)">
         </colgroup>
-        <tbody :class="[prefixCls + '-tbody']">
         <Scroll :on-reach-bottom="onReachBottom">
+        <tbody :class="[prefixCls + '-tbody']">
             <template v-for="(row, index) in data">
                 <table-tr
                     :draggable="draggable"
@@ -36,8 +36,8 @@
                     </td>
                 </tr>
             </template>
-        </Scroll>
         </tbody>
+        </Scroll>
     </table>
 </template>
 <script>
