@@ -24,7 +24,9 @@
                     :data="rebuildData"
                     :row-key="rowKey"
                     :columns-width="columnsWidth"
-                    :obj-data="objData"></table-body>
+                    :obj-data="objData"
+                    :scroll="scroll"
+                    :on-reach-bottom="onReachBottom"></table-body>
             </div>
             <div
                 :class="[prefixCls + '-tip']" :style="bodyStyle" @scroll="handleBodyScroll"
@@ -64,7 +66,9 @@
                         :data="rebuildData"
                         :row-key="rowKey"
                         :columns-width="columnsWidth"
-                        :obj-data="objData"></table-body>
+                        :obj-data="objData"
+                        :scroll="scroll"
+                        :on-reach-bottom="onReachBottom"></table-body>
                 </div>
             </div>
             <div :class="[prefixCls + '-fixed-right']" :style="fixedRightTableStyle" v-if="isRightFixed">
@@ -91,7 +95,9 @@
                         :data="rebuildData"
                         :row-key="rowKey"
                         :columns-width="columnsWidth"
-                        :obj-data="objData"></table-body>
+                        :obj-data="objData"
+                        :scroll="scroll"
+                        :on-reach-bottom="onReachBottom"></table-body>
                 </div>
             </div>
             <div :class="[prefixCls + '-fixed-right-header']" :style="fixedRightHeaderStyle" v-if="isRightFixed"></div>
