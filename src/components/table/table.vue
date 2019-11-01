@@ -25,7 +25,7 @@
                     :row-key="rowKey"
                     :columns-width="columnsWidth"
                     :obj-data="objData"
-                    :scroll="scroll"
+                    :bodyScroll="bodyScroll"
                     :on-reach-bottom="onReachBottom"></table-body>
             </div>
             <div
@@ -67,7 +67,7 @@
                         :row-key="rowKey"
                         :columns-width="columnsWidth"
                         :obj-data="objData"
-                        :scroll="scroll"
+                        :bodyScroll="bodyScroll"
                         :on-reach-bottom="onReachBottom"></table-body>
                 </div>
             </div>
@@ -96,7 +96,7 @@
                         :row-key="rowKey"
                         :columns-width="columnsWidth"
                         :obj-data="objData"
-                        :scroll="scroll"
+                        :bodyScroll="bodyScroll"
                         :on-reach-bottom="onReachBottom"></table-body>
                 </div>
             </div>
@@ -222,7 +222,7 @@
                 type: Boolean,
                 default: false
             },
-            scroll: {
+            bodyScroll: {
                 type: Boolean,
                 default: false
             },
