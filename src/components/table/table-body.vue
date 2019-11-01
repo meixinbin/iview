@@ -3,7 +3,7 @@
         <colgroup>
             <col v-for="(column, index) in columns" :width="setCellWidth(column)">
         </colgroup>
-        <tbody :class="[prefixCls + '-tbody']" v-if="bodyScroll">
+        <tbody :class="[prefixCls + '-tbody']">
         <Scroll on-reach-bottom="onReachBottom">
             <template v-for="(row, index) in data">
                 <table-tr
@@ -37,39 +37,6 @@
                 </tr>
             </template>
         </Scroll>
-        </tbody>
-        <tbody v-else :class="[prefixCls + '-tbody']">
-        <template v-for="(row, index) in data">
-            <table-tr
-                :draggable="draggable"
-                :row="row"
-                :key="rowKey ? row._rowKey : index"
-                :prefix-cls="prefixCls"
-                @mouseenter.native.stop="handleMouseIn(row._index)"
-                @mouseleave.native.stop="handleMouseOut(row._index)"
-                @click.native="clickCurrentRow(row._index)"
-                @dblclick.native.stop="dblclickCurrentRow(row._index)">
-                <td v-for="column in columns" :class="alignCls(column, row)">
-                    <table-cell
-                        :fixed="fixed"
-                        :prefix-cls="prefixCls"
-                        :row="row"
-                        :key="column._columnKey"
-                        :column="column"
-                        :natural-index="index"
-                        :index="row._index"
-                        :checked="rowChecked(row._index)"
-                        :disabled="rowDisabled(row._index)"
-                        :expanded="rowExpanded(row._index)"
-                    ></table-cell>
-                </td>
-            </table-tr>
-            <tr v-if="rowExpanded(row._index)" :class="{[prefixCls + '-expanded-hidden']: fixed}">
-                <td :colspan="columns.length" :class="prefixCls + '-expanded-cell'">
-                    <Expand :key="rowKey ? row._rowKey : index" :row="row" :render="expandRender" :index="row._index"></Expand>
-                </td>
-            </tr>
-        </template>
         </tbody>
     </table>
 </template>
