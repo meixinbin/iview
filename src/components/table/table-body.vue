@@ -3,8 +3,8 @@
         <colgroup>
             <col v-for="(column, index) in columns" :width="setCellWidth(column)">
         </colgroup>
-        <tbody :class="[prefixCls + '-tbody']"  v-if="scroll">
-        <Scroll :on-reach-bottom="handleReachBottom">
+        <Scroll v-if="scroll">
+        <tbody :class="[prefixCls + '-tbody']">
             <template v-for="(row, index) in data">
                 <table-tr
                     :draggable="draggable"
@@ -36,8 +36,8 @@
                     </td>
                 </tr>
             </template>
-        </Scroll>
         </tbody>
+        </Scroll>
         <tbody v-else :class="[prefixCls + '-tbody']">
         <template v-for="(row, index) in data">
             <table-tr
@@ -79,11 +79,12 @@
     import TableCell from './cell.vue';
     import Expand from './expand.js';
     import Mixin from './mixin';
+    import Scroll from "../scroll/scroll";
 
     export default {
         name: 'TableBody',
         mixins: [ Mixin ],
-        components: { TableCell, Expand, TableTr },
+        components: {Scroll, TableCell, Expand, TableTr },
         props: {
             prefixCls: String,
             styleObject: Object,
