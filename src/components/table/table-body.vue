@@ -4,8 +4,6 @@
             <col v-for="(column, index) in columns" :width="setCellWidth(column)">
         </colgroup>
         <Scroll :on-reach-bottom="onReachBottom">
-
-        </Scroll>
         <tbody :class="[prefixCls + '-tbody']">
         <template v-for="(row, index) in data">
             <table-tr
@@ -39,6 +37,7 @@
             </tr>
         </template>
         </tbody>
+        </Scroll>
     </table>
 </template>
 <script>
