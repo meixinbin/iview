@@ -24,8 +24,7 @@
                     :data="rebuildData"
                     :row-key="rowKey"
                     :columns-width="columnsWidth"
-                    :obj-data="objData"
-                    :on-reach-bottom="onReachBottom"></table-body>
+                    :obj-data="objData"></table-body>
             </div>
             <div
                 :class="[prefixCls + '-tip']" :style="bodyStyle" @scroll="handleBodyScroll"
@@ -65,8 +64,7 @@
                         :data="rebuildData"
                         :row-key="rowKey"
                         :columns-width="columnsWidth"
-                        :obj-data="objData"
-                        :on-reach-bottom="onReachBottom"></table-body>
+                        :obj-data="objData"></table-body>
                 </div>
             </div>
             <div :class="[prefixCls + '-fixed-right']" :style="fixedRightTableStyle" v-if="isRightFixed">
@@ -93,8 +91,7 @@
                         :data="rebuildData"
                         :row-key="rowKey"
                         :columns-width="columnsWidth"
-                        :obj-data="objData"
-                        :on-reach-bottom="onReachBottom"></table-body>
+                        :obj-data="objData"></table-body>
                 </div>
             </div>
             <div :class="[prefixCls + '-fixed-right-header']" :style="fixedRightHeaderStyle" v-if="isRightFixed"></div>
@@ -116,7 +113,6 @@
     import Locale from '../../mixins/locale';
     import elementResizeDetectorMaker from 'element-resize-detector';
     import { getAllColumns, convertToRows, convertColumnOrder, getRandomStr } from './util';
-    import Scroll from "../scroll/scroll";
 
     const prefixCls = 'ivu-table';
 
@@ -126,7 +122,7 @@
     export default {
         name: 'Table',
         mixins: [ Locale ],
-        components: {Scroll, tableHead, tableBody, Spin },
+        components: {tableHead, tableBody, Spin },
         provide () {
             return {
                 tableRoot: this
@@ -223,9 +219,6 @@
             scroll: {
                 type: Boolean,
                 default: false
-            },
-            onReachBottom: {
-                type: Function
             }
         },
         data () {
