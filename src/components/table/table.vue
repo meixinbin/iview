@@ -15,7 +15,6 @@
             <div :class="[prefixCls + '-bar']" v-if="showSlotBar" ref="bar"><slot name="bar"></slot></div>
             <div :class="[prefixCls + '-body']" :style="bodyStyle" ref="body" @scroll="handleBodyScroll"
                  v-show="!((!!localeNoDataText && (!data || data.length === 0)) || (!!localeNoFilteredDataText && (!rebuildData || rebuildData.length === 0)))">
-                <Scroll>
                 <table-body
                     ref="tbody"
                     :draggable="draggable"
@@ -26,7 +25,6 @@
                     :row-key="rowKey"
                     :columns-width="columnsWidth"
                     :obj-data="objData"></table-body>
-                </Scroll>
             </div>
             <div
                 :class="[prefixCls + '-tip']" :style="bodyStyle" @scroll="handleBodyScroll"
@@ -57,7 +55,6 @@
                 </div>
                 <div :class="[prefixCls + '-bar']" v-if="showSlotBar" ref="bar"></div>
                 <div :class="[prefixCls + '-fixed-body']" :style="fixedBodyStyle" ref="fixedBody" @mousewheel="handleFixedMousewheel" @DOMMouseScroll="handleFixedMousewheel">
-                    <Scroll>
                     <table-body
                         fixed="left"
                         :draggable="draggable"
@@ -68,7 +65,6 @@
                         :row-key="rowKey"
                         :columns-width="columnsWidth"
                         :obj-data="objData"></table-body>
-                    </Scroll>
                 </div>
             </div>
             <div :class="[prefixCls + '-fixed-right']" :style="fixedRightTableStyle" v-if="isRightFixed">
@@ -86,7 +82,6 @@
                 </div>
                 <div :class="[prefixCls + '-bar']" v-if="showSlotBar" ref="bar"></div>
                 <div :class="[prefixCls + '-fixed-body']" :style="fixedBodyStyle" ref="fixedRightBody" @mousewheel="handleFixedMousewheel" @DOMMouseScroll="handleFixedMousewheel">
-                    <Scroll>
                     <table-body
                         fixed="right"
                         :draggable="draggable"
@@ -97,7 +92,6 @@
                         :row-key="rowKey"
                         :columns-width="columnsWidth"
                         :obj-data="objData"></table-body>
-                    </Scroll>
                 </div>
             </div>
             <div :class="[prefixCls + '-fixed-right-header']" :style="fixedRightHeaderStyle" v-if="isRightFixed"></div>
