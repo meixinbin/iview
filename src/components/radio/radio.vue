@@ -138,7 +138,8 @@
                 if (this.group) {
                     if (this.label !== undefined) {
                         this.parent.change({
-                            value: this.inputValue == undefined? this.label:this.inputValue,
+                            value: this.label,
+                            inputValue: this.inputValue,
                             checked: this.value
                         });
                     }
