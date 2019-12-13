@@ -41,15 +41,12 @@
             name: {
                 type: String,
                 default: getUuid
-            },
-            inputKey: {
-                type: String,
-                default: undefined
             }
         },
         data () {
             return {
                 currentValue: this.value,
+                inputKey: undefined,
                 childrens: []
             };
         },
