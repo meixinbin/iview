@@ -8,7 +8,6 @@
                 :disabled="disabled"
                 :checked="currentValue"
                 :name="groupName"
-                :inputValue="inputValue"
                 @change="change"
                 @focus="onFocus"
                 @blur="onBlur">
@@ -139,7 +138,7 @@
                 if (this.group) {
                     if (this.label !== undefined) {
                         this.parent.change({
-                            value: this.label,
+                            value: this.inputValue == undefined? this.label:this.inputValue,
                             checked: this.value
                         });
                     }
