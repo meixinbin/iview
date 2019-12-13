@@ -42,7 +42,7 @@
                 type: String,
                 default: getUuid
             },
-            key: {
+            inputKey: {
                 type: String,
                 default: undefined
             }
@@ -74,14 +74,14 @@
                 this.childrens = findComponentsDownward(this, 'Radio');
                 if (this.childrens) {
                     this.childrens.forEach(child => {
-                        child.currentValue = this.currentValue === (this.key==undefined? child.label:this.key);
+                        child.currentValue = this.currentValue === (this.inputKey==undefined? child.label:this.inputKey);
                         child.group = true;
                     });
                 }
             },
             change (data) {
                 this.currentValue = data.value;
-                this.key = data.key
+                this.inputKey = data.key
                 this.updateValue();
                 this.$emit('input', data.value);
                 this.$emit('on-change', data.value);
