@@ -8,6 +8,7 @@
                 :disabled="disabled"
                 :checked="currentValue"
                 :name="groupName"
+                :inputValue="inputValue"
                 @change="change"
                 @focus="onFocus"
                 @blur="onBlur">
@@ -35,6 +36,10 @@
             falseValue: {
                 type: [String, Number, Boolean],
                 default: false
+            },
+            inputValue: {
+                type: [String],
+                default: ''
             },
             label: {
                 type: [String, Number]
@@ -109,7 +114,7 @@
                     }
                     /* eslint-enable no-console */
                 } else {
-                    this.groupName = this.parent.name; 
+                    this.groupName = this.parent.name;
                 }
             }
 
