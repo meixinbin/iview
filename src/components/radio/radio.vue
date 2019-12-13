@@ -141,7 +141,7 @@
                 if (this.group) {
                     if (this.label !== undefined) {
                         this.parent.change({
-                            value: this.label,
+                            value: this.value,
                             checked: this.value
                         });
                     }
