@@ -79,8 +79,8 @@
                 this.currentValue = data.value;
                 this.updateValue();
                 this.$emit('input', data.value);
-                this.$emit('on-change', data.inputValue? data.inputValue:data.value);
-                this.dispatch('FormItem', 'on-form-change', data.inputValue? data.inputValue:data.value);
+                this.$emit('on-change', data.value);
+                this.dispatch('FormItem', 'on-form-change', data.value);
             }
         },
         watch: {

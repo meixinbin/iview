@@ -5,7 +5,7 @@
             <input
                 type="radio"
                 :class="inputClasses"
-                :disabled="disabled"
+                :disabled="itemDisabled"
                 :checked="currentValue"
                 :name="groupName"
                 @change="change"
@@ -17,12 +17,13 @@
 <script>
     import { findComponentUpward, oneOf } from '../../utils/assist';
     import Emitter from '../../mixins/emitter';
+    import mixinsForm from '../../mixins/form';
 
     const prefixCls = 'ivu-radio';
 
     export default {
         name: 'Radio',
-        mixins: [ Emitter ],
+        mixins: [ Emitter, mixinsForm ],
         props: {
             value: {
                 type: [String, Number, Boolean],
@@ -35,10 +36,6 @@
             falseValue: {
                 type: [String, Number, Boolean],
                 default: false
-            },
-            inputValue: {
-                type: [String],
-                default: ''
             },
             label: {
                 type: [String, Number]
@@ -57,6 +54,11 @@
             },
             name: {
                 type: String
+            },
+            // 4.0.0
+            border: {
+                type: Boolean,
+                default: false
             }
         },
         data () {
@@ -76,9 +78,10 @@
                     {
                         [`${prefixCls}-group-item`]: this.group,
                         [`${prefixCls}-wrapper-checked`]: this.currentValue,
-                        [`${prefixCls}-wrapper-disabled`]: this.disabled,
+                        [`${prefixCls}-wrapper-disabled`]: this.itemDisabled,
                         [`${prefixCls}-${this.size}`]: !!this.size,
-                        [`${prefixCls}-focus`]: this.focusWrapper
+                        [`${prefixCls}-focus`]: this.focusWrapper,
+                        [`${prefixCls}-border`]: this.border
                     }
                 ];
             },
@@ -87,7 +90,7 @@
                     `${prefixCls}`,
                     {
                         [`${prefixCls}-checked`]: this.currentValue,
-                        [`${prefixCls}-disabled`]: this.disabled
+                        [`${prefixCls}-disabled`]: this.itemDisabled
                     }
                 ];
             },
@@ -125,7 +128,7 @@
         },
         methods: {
             change (event) {
-                if (this.disabled) {
+                if (this.itemDisabled) {
                     return false;
                 }
 
@@ -139,7 +142,6 @@
                     if (this.label !== undefined) {
                         this.parent.change({
                             value: this.label,
-                            inputValue: this.inputValue,
                             checked: this.value
                         });
                     }
