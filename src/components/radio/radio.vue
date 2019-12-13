@@ -55,6 +55,9 @@
             name: {
                 type: String
             },
+            inputKey: {
+                type: String
+            },
             // 4.0.0
             border: {
                 type: Boolean,
@@ -141,7 +144,8 @@
                 if (this.group) {
                     if (this.label !== undefined) {
                         this.parent.change({
-                            value: this.value,
+                            value: this.label,
+                            key: this.inputKey==undefined? this.label:this.inputKey,
                             checked: this.value
                         });
                     }

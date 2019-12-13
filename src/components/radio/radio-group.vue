@@ -79,7 +79,7 @@
                 this.currentValue = data.value;
                 this.updateValue();
                 this.$emit('input', data.value);
-                this.$emit('on-change', data.value);
+                this.$emit('on-change', data.key);
                 this.dispatch('FormItem', 'on-form-change', data.value);
             }
         },
